@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Registration Page</title>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<form method="POST" action="register.jsp">
+		<br> <br> <br>
+		<div style="position: absolute; left: 40%; ">
+		<h1 style="text-align: center;">Registration form</h1>
+		<br> <br>
+		<table
+			style="border: 1px solid black;width: 300px; background-color: #CCCCCC">
+			<tr>
+				<th>Enter your First Name</th>
+				<td><input type="text" name="fname" maxlength="10"
+					placeholder="First Name" required /></td>
+			</tr>
+			<tr>
+				<th>Enter your Last Name</th>
+				<td><input type="text" name="lname" required /></td>
+			</tr>
+			<tr>
+				<th>Enter your Password</th>
+				<td><input type="password" name="pwd" required id="pwd" /></td>
+			</tr>
+			<tr>
+				<th>ReEnter your Password</th>
+				<td><input type="password" name="cnfpwd" required id="cnfpwd"/></td>
+			</tr>
+			<tr>
+				<th>Enter your E-mail</th>
+				<td><input type="email" name="email" required /></td>
+			</tr>
+			<tr>
+				<th>Enter your Mobile</th>
+				<td><input type="number" name="phone" required /></td>
+			</tr>
+			<tr>
+				<th>Enter your Address</th>
+				<td><textarea rows="8" cols="20" name="address"></textarea></td>
+			</tr>
+			<tr>
+				<th>Select your Gender</th>
+				<td>Male<input type="radio" name="g" value="m" /> Female<input
+					type="radio" name="g" value="f" />
+				</td>
+			</tr>
+			<tr>
+				<th>Select your DOB</th>
+				<td><input type="date" name="dob" /></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" id="btn"
+					value="Register" > <input type="reset" value="Reset" ></td>
+			</tr>
+		</table>
+		</div>
+	</form>
+	<script>
+	$().ready(() => {
+		$('#btn').attr('disabled', true);
+		$('input[type="password"]').keyup( () => {
+			$('#btn').attr('disabled', true);
+		    var pass = $('input[name=pwd]').val();
+		    var repass = $('input[name=cnfpwd]').val();
+		    if(($('input[name=pwd]').val().length == 0) || ($('input[name=pwd]').val().length == 0)){
+		        $('#btn').attr('disabled', true);
+		    }
+		    else if (pass != repass) {
+		    	$('#btn').attr('disabled', true);
+		    }
+		    else {
+		    	$('#btn').attr('disabled', false);
+		    }
+		})
+	});
+	</script>
+</body>
+</html>
