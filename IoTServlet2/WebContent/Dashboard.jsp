@@ -139,7 +139,7 @@ section.cards {
 				<h2><%= rs2.getFloat(3) %></h2>
 			</div>
 			<div class="card">
-				<h4>Lux</h4>
+				<h4>Brightness</h4>
 				<h2><%= rs2.getInt(4) %></h2>
 			</div>
 			<div class="card">
