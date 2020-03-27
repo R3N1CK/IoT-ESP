@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.sql.*"%>
-<%! String username; 
+<%! String username = ""; 
     	String admin = "Admin";
     	%>
 <!DOCTYPE html>
@@ -60,7 +60,8 @@ section.cards {
 <% 
 		boolean found = false;
 		Cookie[] cooki = request.getCookies();
-		if (cooki == null) response.sendRedirect("Register.html");
+		if (cooki == null) response.sendRedirect("Login");
+		else {
 		for (Cookie coo: cooki) {
 			if (coo.getName().equals("username")) {
 				found = true;
@@ -70,13 +71,14 @@ section.cards {
 		} if (!found) {
 			response.sendRedirect("Login");
 		}
+		}
 	%>
 <meta charset="ISO-8859-1">
 <title>DashBoard <%= (username.equals("Admin"))? " - Admin" : "" %></title>
 </head>
 <body>
 	<% if (username.equals("Admin")) { %>
-	<div>
+	<div style="display: flex; flex-direction: column;">
 		<h2>Hello, Administrator!</h2>
 		<%
 		Class.forName("com.mysql.cj.jdbc.Driver");
