@@ -72,11 +72,28 @@ section.cards {
 			response.sendRedirect("Login");
 		}
 		}
+		
 	%>
 <meta charset="ISO-8859-1">
 <title>DashBoard <%= (username.equals("Admin"))? " - Admin" : "" %></title>
 </head>
 <body>
+	<form action="Dashboard.jsp" method="post">
+		<input type="text" name="action" value="logout" style="display: none; visibility: hidden">
+		<input type="submit" value="Logout" style="position: absolute; left: 90%">
+	</form>
+	<%
+	if (request.getParameter("action") != null) {
+		for (Cookie cook: request.getCookies()) {
+			if (cook.getName().equals("username")) {
+				cook.setMaxAge(0);
+				cook.setValue(null);
+				response.addCookie(cook);
+				response.sendRedirect("Login");
+			}
+		}
+	}
+	%>
 	<% if (username.equals("Admin")) { %>
 	<div style="display: flex; flex-direction: column;">
 		<h2>Hello, Administrator!</h2>

@@ -28,6 +28,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		Cookie[] cooki = request.getCookies();
 
 		String formHtml = "<html><head>"
 				+ "<link rel=\"stylesheet\" href=\"https://rsms.me/inter/inter.css\">"
@@ -42,7 +43,7 @@ public class Login extends HttpServlet {
 				+ "Password: <input type=\"password\" name=\"Password\"><br/>" + "<input type=\"submit\">"
 				+ "</form></div></body></html>";
 		response.getWriter().println(formHtml);
-	}
+		}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -66,6 +67,7 @@ public class Login extends HttpServlet {
 					loggedIn = true;
 					response.getWriter().println("Logged in!");
 					Cookie cook = new Cookie("username", uName);
+					cook.setMaxAge(60*60);
 					response.addCookie(cook);
 					response.sendRedirect("Dashboard.jsp");
 				} 
