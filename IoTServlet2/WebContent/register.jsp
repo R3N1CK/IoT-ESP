@@ -20,12 +20,13 @@
 		pq.setString(5, request.getParameter("phone"));
 		pq.setString(6, request.getParameter("address"));
 		pq.setString(8, request.getParameter("dob"));
-		String female = request.getParameter("f");
-		String male = request.getParameter("m");
+		String gender = request.getParameter("g");
+		/*String male = request.getParameter("m");
 		String gender = "F";
-		if (male!=null) {
+		if (male!=(null)) {
 			gender="M";
-		}
+		}*/
+			
 		pq.setString(7, gender);
 		pq.execute();
 		response.sendRedirect("Login");

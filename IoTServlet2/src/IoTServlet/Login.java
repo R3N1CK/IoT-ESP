@@ -40,7 +40,8 @@ public class Login extends HttpServlet {
 				+ "transform: translate(-50%, -50%);\"><h1>Login!</h1>"
 				+ "<form method=\"post\">"
 				+ "Username:<input type=\"text\" name=\"UName\"> <br/>"
-				+ "Password: <input type=\"password\" name=\"Password\"><br/>" + "<input type=\"submit\">"
+				+ "Password: <input type=\"password\" name=\"Password\"><br/>" + "<input type=\"submit\"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp"
+						+ " &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <a href=\"Register.html\"><input type=\"Button\" value=\"Register\"></a>"
 				+ "</form></div></body></html>";
 		response.getWriter().println(formHtml);
 		}
